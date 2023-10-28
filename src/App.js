@@ -1,7 +1,7 @@
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Login from './components/Log/Login';
-import Singin from './components/Log/Singin';
+import Login from './components/login/Login';
+import Singin from './components/login/Singin';
 import About from './components/about/About';
 import Home from './components/home/Home';
 import Cart from './components/cart/Cart';
