@@ -1,33 +1,26 @@
 import React from 'react';
-// import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-// import Login from './components/log/Login';
-// import Singin from './components/log/Singin';
-// import About from './components/about/About';
 import Home from './components/home/Home';
-// import Cart from './components/cart/Cart';
-import Footer from './components/footer/Footer';
+import Login from './components/log/Login';
+import Singin from './components/log/Singin';
+import {
+  RouterProvider,
+  createBrowserRouter,
+} from "react-router-dom";
 
-function App() {
+const App = () => {
+
+  const router = createBrowserRouter([
+    { path: "/", element: <Home /> },
+    { path: "/login", element: <Login /> },
+    { path: "/singin", element: <Singin /> },
+  ]);
+
+
+
   return (
     <div>
-      <div>
-        <Home/>
-      </div>
-      <div>
-        <Footer />
-      </div>
+      <RouterProvider router={router} />
     </div>
-    // <Router>
-    //   {/* <Routes>
-    //     <Route path="/login" element={<Login />} />
-    //     <Route path="/singin" element={<Singin />} />
-    //     <Route path="/about" element={<About />} />
-    //     <Route path="/" element={<Home />} />
-    //     <Route path="/cart" element={<Cart />} />
-    //   </Routes> */}
-    //   <Footer />
-    // </Router>
-
   );
 }
 
