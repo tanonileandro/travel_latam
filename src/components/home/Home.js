@@ -2,23 +2,32 @@ import React from 'react';
 import constantsImages from "../../constants/images";
 import Footer from '../footer/Footer';
 import { useNavigate } from 'react-router';
+import './home.css'
 
-const PromotionCard = ({ image, title, description }) => (
-  <div className="m-2 border rounded shadow">
-    <img
-      src={image}
-      alt={title}
-      className="w-100 h-auto"
-    />
-    <div className="p-4">
-      <h2 className="text-lg font-weight-bold">{title}</h2>
-      <p>{description}</p>
+const PromotionCard = ({ image, title, description }) => {
+  // Dividir la descripción en puntos individuales
+  const points = description.split(' + ');
+
+  return (
+    <div className="m-2 border rounded shadow promotion-card">
+      <img
+        src={image}
+        alt={title}
+        className="w-100 h-auto"
+      />
+      <div className="p-4">
+        <h2 className="text-lg font-weight-bold title-card">{title}</h2>
+        <ul className="list-unstyled">
+          {points.map((point, index) => (
+            <li key={index}>{point}</li>
+          ))}
+        </ul>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 const Home = () => {
-  // Obtén la función de navegación usando useNavigate
   const navigate = useNavigate();
   const promotions = [
     {
@@ -29,7 +38,7 @@ const Home = () => {
     {
       image: constantsImages.mdq,
       title: 'MAR DEL PLATA | VERANO 2024',
-      description: 'Bus semicama + Hotel Antranik + desayuno. Salidas 5, 12, 19 y 26 de enero y 2 de febrero (7 nts) $ 151.000/ 1, 12, 17 y 22 de febrero (5 nts) $119.150/ 18 y 22 de febrero (5 nts) $ 120.500. Salidas especiales carnaval: 6 de febrero (6 nts) $ 134.500/ 9 de febrero (3 nts) $ 90.000. Precios por persona.',
+      description: 'Bus semicama + Hotel Antranik + Desayuno. Salidas 5, 12, 19 y 26 de enero y 2 de febrero (7 nts) $ 151.000/ 1, 12, 17 y 22 de febrero (5 nts) $119.150/ 18 y 22 de febrero (5 nts) $ 120.500. Salidas especiales carnaval: 6 de febrero (6 nts) $ 134.500/ 9 de febrero (3 nts) $ 90.000. Precios por persona.',
     },
     {
       image: constantsImages.mendoza,
@@ -53,24 +62,27 @@ const Home = () => {
     },
   ];
 
-  const redirectToSinginPage = () => {
-    // Navega a la ruta "/about" cuando se llama a esta función
-    navigate('/singin');
-  };
+  // Dividimos las promociones en pares
+  const pairedPromotions = [];
+  for (let i = 0; i < promotions.length; i += 2) {
+    pairedPromotions.push(promotions.slice(i, i + 2));
+  }
 
   return (
     <div className="text-center">
-      <h1 className="text-3xl font-weight-bold my-4">TravelLatam</h1> 
-      <button onClick={redirectToSinginPage}>Registrate gratis!</button>
-      <h2 className="text-xl font-weight-bold mb-8">Promociones especiales</h2>
-      <div className="d-flex justify-content-center flex-wrap">
-        {promotions.map((promo, index) => (
-          <PromotionCard key={index} {...promo} />
+      <h2 className="text-xl font-weight-bold mb-8 title2">Promociones especiales</h2>
+      <div className="promotion-card-container">
+        {pairedPromotions.map((pair, index) => (
+          <div key={index} className="d-flex justify-content-center ">
+            {pair.map((promo, innerIndex) => (
+              <PromotionCard key={innerIndex} {...promo} />
+            ))}
+          </div>
         ))}
       </div>
       <Footer/>
     </div>
-  );
+  ); 
 }
 
 export default Home;

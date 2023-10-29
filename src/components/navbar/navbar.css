@@ -1,0 +1,34 @@
+/* styles.css */
+.title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #fdfdfd; /* Color de texto oscuro */
+  text-shadow: 2px 2px 5px rgba(119, 119, 119, 0.8); /* Sombra suave en color blanco */
+}
+/* navbar.css */
+.navbar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0px 10px 35px rgb(32, 32, 32); /* Añade una sombra en la parte inferior */
+  margin-bottom: 20px;
+}
+
+.nav-links {
+  margin-top: 10px;
+  display: flex;
+}
+
+.nav-link {
+  font-size: 20px;
+  padding: 0 20px;
+  color: white;
+  text-decoration: none;
+  margin-right: 1rem;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: #ffc107;
+  text-transform: uppercase;
+}
