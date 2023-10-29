@@ -1,6 +1,7 @@
 import React from 'react';
 import constantsImages from "../../constants/images";
 import Footer from '../footer/Footer';
+import { useNavigate } from 'react-router';
 
 const PromotionCard = ({ image, title, description }) => (
   <div className="m-2 border rounded shadow">
@@ -17,6 +18,8 @@ const PromotionCard = ({ image, title, description }) => (
 );
 
 const Home = () => {
+  // Obtén la función de navegación usando useNavigate
+  const navigate = useNavigate();
   const promotions = [
     {
       image: constantsImages.cor2,
@@ -50,9 +53,15 @@ const Home = () => {
     },
   ];
 
+  const redirectToSinginPage = () => {
+    // Navega a la ruta "/about" cuando se llama a esta función
+    navigate('/singin');
+  };
+
   return (
     <div className="text-center">
       <h1 className="text-3xl font-weight-bold my-4">TravelLatam</h1> 
+      <button onClick={redirectToSinginPage}>Registrate gratis!</button>
       <h2 className="text-xl font-weight-bold mb-8">Promociones especiales</h2>
       <div className="d-flex justify-content-center flex-wrap">
         {promotions.map((promo, index) => (
