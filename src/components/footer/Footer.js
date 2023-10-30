@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="container text-center">
         <div className="mb-4">
           <p className="text-sm footer-text">Síguenos en redes sociales para obtener las últimas actualizaciones</p>
-          <div className="d-flex justify-content-center gap-4 social-icons">
+          <div className="d-flex justify-content-center gap-4 align-items-center social-icons">
             <a href="#" className="text-white"><i className="fab fa-facebook"></i></a>
             <a href="#" className="text-white"><i className="fab fa-twitter"></i></a>
             <a href="#" className="text-white"><i className="fab fa-instagram"></i></a>

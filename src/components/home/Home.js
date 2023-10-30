@@ -1,6 +1,5 @@
 import React from 'react';
 import constantsImages from "../../constants/images";
-import Footer from '../footer/Footer';
 import { useNavigate } from 'react-router';
 import './home.css'
 
@@ -69,7 +68,7 @@ const Home = () => {
   }
 
   return (
-    <div className="text-center">
+    <div className="text-center mt-1">
       <h2 className="text-xl font-weight-bold mb-8 title2">Promociones especiales</h2>
       <div className="promotion-card-container">
         {pairedPromotions.map((pair, index) => (
@@ -80,7 +79,7 @@ const Home = () => {
           </div>
         ))}
       </div>
-      <Footer/>
+      
     </div>
   ); 
 }

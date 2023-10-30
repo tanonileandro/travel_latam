@@ -5,6 +5,7 @@ import Login from './components/log/Login';
 import Singin from './components/log/Singin';
 import Navbar from "./components/navbar/Navbar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Footer from './components/footer/Footer';
 
 const App = () => {
   return (
@@ -17,6 +18,9 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/singin" element={<Singin />} />
         </Routes>
+      </div>
+      <div>
+        <Footer/>
       </div>
     </BrowserRouter>
   );
