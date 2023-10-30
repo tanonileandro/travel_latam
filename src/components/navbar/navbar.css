@@ -1,34 +1,52 @@
-/* styles.css */
-.title {
-  font-size: 3rem;
-  font-weight: bold;
-  color: #fdfdfd; /* Color de texto oscuro */
-  text-shadow: 2px 2px 5px rgba(119, 119, 119, 0.8); /* Sombra suave en color blanco */
-}
-/* navbar.css */
 .navbar-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  box-shadow: 0px 10px 35px rgb(32, 32, 32); /* Añade una sombra en la parte inferior */
+  background-color: #343a40;
+
+  text-align: center; /* Alinea el texto al centro */
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #ffffff;
   margin-bottom: 20px;
 }
 
 .nav-links {
-  margin-top: 10px;
+  list-style: none;
+  padding: 0;
   display: flex;
+  justify-content: center; /* Alinea los elementos del centro */
+  margin-bottom: 10px;
+}
+
+.button-container {
+  display: flex;
+  padding: 10px;
+  margin-right: 30px;
+  margin-bottom: 10px;
+  justify-content: center; /* Alinea el botón al centro */
+}
+.btn {
+  background-color: #ffc107;
+  color: black;
+}
+
+.nav-links {
+  margin-top: 10px;
 }
 
 .nav-link {
-  font-size: 20px;
-  padding: 0 20px;
+  font-size: 22px;
+  padding: 0 40px;
   color: white;
   text-decoration: none;
-  margin-right: 1rem;
-  transition: color 0.3s;
+  transition: transform 0.3s; /* Agregado para una transición suave */
 }
 
 .nav-link:hover {
   color: #ffc107;
-  text-transform: uppercase;
+  transform: translateY(-5px); /* Mueve el texto ligeramente hacia abajo */
+  text-shadow: 0px 10px 20px rgba(155, 155, 155, 1)
 }

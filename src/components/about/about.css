@@ -1,0 +1,30 @@
+.about-container {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .about-container h2 {
+    color: #333;
+    font-size: 2em;
+    font-weight: bold;
+  }
+  
+  .about-container p {
+    color: #555;
+    font-size: 1.1em;
+    line-height: 1.6;
+  }
+  
+  .about-container ul {
+    color: #555;
+    font-size: 1.1em;
+    line-height: 1.6;
+    list-style-type: disc;
+  }
+  
+  .about-container ul li {
+    margin-bottom: 10px;
+  }
+  

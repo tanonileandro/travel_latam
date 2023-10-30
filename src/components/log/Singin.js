@@ -1,33 +1,33 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
-import { getFirestore, doc, setDoc } from "firebase/firestore";
-import { useNavigate, Link } from "react-router-dom";
+import { getFirestore, doc, setDoc } from 'firebase/firestore';
+import { useNavigate, Link } from 'react-router-dom';
 import firebaseApp from '../../firebase/Firebase';
+import './StylesLog.css'
 
-const firestore = getFirestore(firebaseApp);
-const auth = getAuth(firebaseApp);
 const Singin = () => {
-  //estados de los inputs 
   const [error, setError] = useState('');
-  const [email, setEmail ] = useState('');
-  const [password, setPassword ] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
+  const firestore = getFirestore(firebaseApp);
+  const auth = getAuth(firebaseApp);
+
   const registerUser = async () => {
-    const infoUser = await createUserWithEmailAndPassword(
-      auth, email, password
-    );
-    console.log(infoUser.user.uid);
-    const docRef = doc(firestore,  `users/${infoUser.user.uid}`);
-    setDoc(docRef, {
+    const infoUser = await createUserWithEmailAndPassword(auth, email, password);
+
+    const docRef = doc(firestore, `users/${infoUser.user.uid}`);
+    await setDoc(docRef, {
       email: email,
-      rol: 'cliente', //establecemos este rol como predeterminado
-      password: password
+      rol: 'cliente',
+      password: password,
     });
-  }
+  };
 
   const handlerSubmit = (event) => {
     event.preventDefault();
+
     if (!validateEmail(email)) {
       setError('Ingresa un email válido');
       return;
@@ -40,13 +40,13 @@ const Singin = () => {
 
     registerUser()
       .then(() => {
-        navigate("/");
+        navigate('/');
       })
       .catch((error) => {
         setError('Error al registrar el usuario');
-        console.log(error);
+        console.error(error);
       });
-  }
+  };
 
   const validateEmail = (email) => {
     const emailR = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -58,34 +58,49 @@ const Singin = () => {
   };
 
   return (
-    <div>
-      <div className='singin-container'>
-        <h1> Registrate </h1>
-        <form className='singin-form'onSubmit={handlerSubmit}>
-          <input 
-          type="text"
-          name='email'
-          id='email'
-          placeholder='Ingrese su email'
-          value={email}
-          onChange={(e)=> setEmail(e.target.value)}
-          />
-          <input 
-          type="password"
-          name='password'
-          id='password'
-          placeholder='Ingrese su contraseña'
-          value={password}
-          onChange={(e)=> setPassword(e.target.value)}
-          />
-          <button type='submit'>
-            Registrate
-          </button>
-        </form>
-        <Link to="/login">Tengo cuenta</Link>
+    <div className="container mt-5">
+      <h2 className="mb-4 text-xl font-weight-bold mb-8 title2 text-center">¡Regístrate Gratis!</h2>
+      <div className="row justify-content-center">
+        <div className="col-md-6">
+          <div className="card">
+            <div className="card-body">
+              <form onSubmit={handlerSubmit}>
+                <div className="mb-3">
+                  <label htmlFor='email' className='form-label'>Ingrese su Correo Electrónico</label>
+                  <input
+                    type="email"
+                    className="form-control"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor='password' className='form-label'>Elija una Contraseña</label>
+                  <input
+                    type="password"
+                    className="form-control"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                  />
+                </div>
+                {error && <div className="alert alert-danger mb-3">{error}</div>}
+                <div className="d-grid gap-2">
+                  <button type="submit" className="btn btn-secondary">
+                    Regístrate
+                  </button>
+                </div>
+              </form>
+              <p className="text-center mt-3">
+                ¿Ya tienes una cuenta? <Link to="/login">Inicia sesión</Link>
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Singin;

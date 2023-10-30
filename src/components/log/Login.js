@@ -1,9 +1,9 @@
-import './Login.css';
+import React, { useState } from 'react';
 import firebaseApp from '../../firebase/Firebase';
 import { useNavigate, Link } from 'react-router-dom';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
-import { useState } from 'react';
 import { getFirestore } from 'firebase/firestore';
+import './StylesLog.css'
 
 const auth = getAuth(firebaseApp);
 
@@ -21,7 +21,7 @@ const Login = () => {
       setError('Ingresa un email válido');
       return;
     }
-  
+
     if (!validatePassword(password)) {
       setError('La contraseña debe tener al menos 6 caracteres');
       return;
@@ -34,11 +34,9 @@ const Login = () => {
       if (error.code === 'auth/user-not-found') {
         setError('Usuario no registrado. Regístrese a continuación.');
       } else {
-        // Si ocurre otro tipo de error, puedes mostrar un mensaje genérico
         setError('Error al iniciar sesión. Inténtelo de nuevo más tarde.');
       }
     }
-
   };
 
   const validateEmail = (email) => {
@@ -50,31 +48,38 @@ const Login = () => {
     return password.length >= 6;
   };
 
-
   return (
-    <div className='login-container'>
-      <h1>"Iniciá sesión</h1>
-      <form className='login-form' onSubmit={handlerSubmit}>
-        <input 
-        type="text"
-        name='email'
-        id='email'
-        placeholder='Ingrese su email'
-        />
-        <input 
-        type="password"
-        name='password'
-        id='password'
-        placeholder='Ingrese su contraseña'
-        />
-        {error && <p className="error-message">{error}</p>}
-        <button type='submit'>
-          iniciar sesion
-        </button>
-      </form>
-      <Link to="/singin">No tengo cuenta</Link>
+    
+    <div className='container mt-5'>
+      <h2 className="mb-4 text-xl font-weight-bold mb-8 title2 text-center">Iniciar Sesión</h2>
+      <div className='row justify-content-center'>
+        <div className='col-md-6'>
+          <div className='card'>
+            <div className='card-body'>
+              <form onSubmit={handlerSubmit}>
+                <div className='mb-3'>
+                  <label htmlFor='email' className='form-label'>Ingrese su Correo Electrónico</label>
+                  <input type='email' className='form-control' id='email' required />
+                </div>
+                <div className='mb-3'>
+                  <label htmlFor='password' className='form-label'>Contraseña</label>
+                  <input type='password' className='form-control' id='password' required />
+                </div>
+                {error && <p className='error-message'>{error}</p>}
+                <button type='submit' className='btn btn-secondary w-100'>Iniciar Sesión</button>
+              </form>
+              <p className='text-center mt-3'>
+              ¿No tienes una cuenta? <Link to='/singin'> Regístrate aquí.</Link>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
 
 export default Login;
+
+
+
