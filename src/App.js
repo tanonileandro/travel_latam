@@ -2,7 +2,7 @@ import React from 'react';
 import Home from './components/home/Home';
 import About from './components/about/About';
 import Login from './components/log/Login';
-import Singin from './components/log/Singin';
+import Signing from './components/log/Signing';
 import Navbar from "./components/navbar/Navbar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Footer from './components/footer/Footer';
@@ -16,7 +16,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/singin" element={<Singin />} />
+          <Route path="/Signing" element={<Signing />} />
         </Routes>
       </div>
       <div>

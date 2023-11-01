@@ -5,7 +5,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import firebaseApp from '../../firebase/Firebase';
 import './StylesLog.css'
 
-const Singin = () => {
+const Signing = () => {
   const [error, setError] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -103,4 +103,4 @@ const Singin = () => {
   );
 };
 
-export default Singin;
+export default Signing;

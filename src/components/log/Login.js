@@ -69,7 +69,7 @@ const Login = () => {
                 <button type='submit' className='btn btn-secondary w-100'>Iniciar Sesión</button>
               </form>
               <p className='text-center mt-3'>
-              ¿No tienes una cuenta? <Link to='/singin'> Regístrate aquí.</Link>
+              ¿No tienes una cuenta? <Link to='/Signing'> Regístrate aquí.</Link>
               </p>
             </div>
           </div>
