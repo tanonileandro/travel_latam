@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import firebaseApp from '../../firebase/Firebase';
 import { useNavigate, Link } from 'react-router-dom';
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { getAuth, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
-import './StylesLog.css'
+import './StylesLog.css';
 
 const auth = getAuth(firebaseApp);
 
@@ -11,6 +11,21 @@ const Login = () => {
   const [error, setError] = useState('');
   const firebase = getFirestore(firebaseApp);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged(user => {
+      if (user) {
+        // El usuario ya está autenticado, redirigir o mostrar opciones
+        navigate('/');
+      } else {
+        // No autenticado
+      }
+    });
+
+    return () => {
+      unsubscribe();
+    };
+  }, []); // Se ejecuta una vez al montar el componente
 
   const handlerSubmit = async (e) => {
     e.preventDefault();
@@ -39,6 +54,15 @@ const Login = () => {
     }
   };
 
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      navigate('/');
+    } catch (error) {
+      console.error('Error al cerrar sesión:', error);
+    }
+  };
+
   const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
@@ -49,7 +73,6 @@ const Login = () => {
   };
 
   return (
-    
     <div className='container mt-1 log'>
       <h2 className="mb-4 text-xl font-weight-bold mb-8 title2 text-center">Iniciar Sesión</h2>
       <div className='row justify-content-center'>
@@ -68,9 +91,14 @@ const Login = () => {
                 {error && <p className='error-message'>{error}</p>}
                 <button type='submit' className='btn btn-secondary w-100'>Iniciar Sesión</button>
               </form>
-              <p className='text-center mt-3'>
-              ¿No tienes una cuenta? <Link to='/Signing'> Regístrate aquí.</Link>
-              </p>
+              {/* Mostrar la opción de cerrar sesión si el usuario está autenticado */}
+              {auth.currentUser && (
+                <div>
+                  <p className='text-center mt-3'>
+                    ¿Ya estás logeado? <button onClick={handleLogout}>Cerrar Sesión</button>
+                  </p>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -80,6 +108,7 @@ const Login = () => {
 };
 
 export default Login;
+
 
 
 
