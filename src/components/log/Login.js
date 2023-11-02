@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import firebaseApp from '../../firebase/Firebase';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { getAuth, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 import './StylesLog.css';
@@ -11,7 +11,7 @@ const Login = () => {
   const [error, setError] = useState('');
   const firebase = getFirestore(firebaseApp);
   const navigate = useNavigate();
-
+  /*
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(user => {
       if (user) {
@@ -25,7 +25,7 @@ const Login = () => {
     return () => {
       unsubscribe();
     };
-  }, []); // Se ejecuta una vez al montar el componente
+  }, []); // Se ejecuta una vez al montar el componente*/
 
   const handlerSubmit = async (e) => {
     e.preventDefault();
@@ -44,6 +44,7 @@ const Login = () => {
 
     try {
       await signInWithEmailAndPassword(auth, email, password);
+      console.log('Sign In Success');
       navigate("/");
     } catch (error) {
       if (error.code === 'auth/user-not-found') {
@@ -91,14 +92,14 @@ const Login = () => {
                 {error && <p className='error-message'>{error}</p>}
                 <button type='submit' className='btn btn-secondary w-100'>Iniciar Sesión</button>
               </form>
-              {/* Mostrar la opción de cerrar sesión si el usuario está autenticado */}
+              {/* Mostrar la opción de cerrar sesión si el usuario está autenticado 
               {auth.currentUser && (
                 <div>
                   <p className='text-center mt-3'>
                     ¿Ya estás logeado? <button onClick={handleLogout}>Cerrar Sesión</button>
                   </p>
                 </div>
-              )}
+              )}*/}
             </div>
           </div>
         </div>
