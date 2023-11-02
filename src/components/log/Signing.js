@@ -7,6 +7,7 @@ import './StylesLog.css'
 
 const Signing = () => {
   const [error, setError] = useState('');
+  const [mensaje, setMensaje] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -40,7 +41,7 @@ const Signing = () => {
 
     registerUser()
       .then(() => {
-        navigate('/');
+        setMensaje('Inicie sesión');
       })
       .catch((error) => {
         setError('Error al registrar el usuario');
@@ -86,6 +87,7 @@ const Signing = () => {
                   />
                 </div>
                 {error && <div className="alert alert-danger mb-3">{error}</div>}
+                {mensaje && <div className="alert alert-success mb-3">{mensaje}</div>}
                 <div className="d-grid gap-2">
                   <button type="submit" className="btn btn-secondary">
                     Regístrate

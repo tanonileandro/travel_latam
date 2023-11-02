@@ -10,7 +10,7 @@ const Navbar = () => {
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
   };
-
+  
   const themeClass = darkMode ? 'dark-mode' : '';
 
   return (
@@ -41,7 +41,7 @@ const Navbar = () => {
           </a>
           {/* Condición para mostrar el enlace de usuario solo si el usuario está autenticado */}
           {user && (
-            <Link to="/profile" className="text-white">
+            <Link to="/Signing" className="text-white">
               <i className="fa-solid fa-user"></i>
             </Link>
           )}

@@ -16,7 +16,7 @@ const Login = () => {
     const unsubscribe = auth.onAuthStateChanged(user => {
       if (user) {
         // El usuario ya está autenticado, redirigir o mostrar opciones
-        navigate('/');
+        navigate('/login');
       } else {
         // No autenticado
       }
