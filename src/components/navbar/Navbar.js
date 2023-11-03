@@ -8,6 +8,8 @@ import { useNavigate } from 'react-router';
 import { doc, getDoc } from 'firebase/firestore';
 import { getFirestore } from 'firebase/firestore';
 import { getUser } from '../../firebase/Firebase';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
 const auth = getAuth(firebaseApp);
 const firestore = getFirestore(firebaseApp);
@@ -85,6 +87,13 @@ const Navbar = () => {
             <i className="fa-solid fa-circle-half-stroke"></i>
           </a>
           {/* Condición para mostrar el enlace de usuario solo si el usuario está autenticado */}
+          {auth.currentUser && (
+            <li className="nav-item">
+         <Link to="/Cart" className="nav-link">
+           <FontAwesomeIcon icon={faShoppingCart} />
+         </Link>
+          </li>
+          )}
           {auth.currentUser && (
             <button className='btn btn-gray' onClick={handleLogout}>Cerrar Sesión</button>  
           )}
