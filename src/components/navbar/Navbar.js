@@ -5,9 +5,7 @@ import './navbar.css'; // Asegúrate de tener el archivo Navbar.css
 import { getAuth, signOut } from 'firebase/auth';
 import firebaseApp from '../../firebase/Firebase';
 import { useNavigate } from 'react-router';
-import { doc, getDoc } from 'firebase/firestore';
 import { getFirestore } from 'firebase/firestore';
-import { getUser } from '../../firebase/Firebase';
 
 const auth = getAuth(firebaseApp);
 const firestore = getFirestore(firebaseApp);
@@ -25,6 +23,7 @@ const Navbar = () => {
   //cierre sesión
   const [error, setError] = useState('');
   const navigate = useNavigate();
+
 
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged(user => {

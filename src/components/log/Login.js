@@ -55,6 +55,7 @@ const Login = () => {
     }
   };
 
+  /*
   const handleLogout = async () => {
     try {
       await signOut(auth);
@@ -62,7 +63,7 @@ const Login = () => {
     } catch (error) {
       console.error('Error al cerrar sesión:', error);
     }
-  };
+  };*/
 
   const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
