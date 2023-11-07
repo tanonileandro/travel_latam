@@ -4,16 +4,16 @@ import About from './components/about/About';
 import Login from './components/log/Login';
 import Signing from './components/log/Signing';
 import Navbar from "./components/navbar/Navbar";
-import Cart from './components/cart/Cart'; // Importa el componente Cart
+import Cart from './components/cart/Cart'; 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Footer from './components/footer/Footer';
-import { AuthProvider } from './contexts/AuthContext'; // Asegúrate de que la ruta del contexto sea correcta
+import { AuthProvider } from './contexts/AuthContext'; 
 
 
 const App = () => {
   return (
     <BrowserRouter>
-      <AuthProvider> {/* Agregar AuthProvider aquí para envolver todos los componentes */}
+      <AuthProvider> {/* Agregar AuthProvider para envolver todos los componentes */}
         <div>
           <Navbar />
           <Routes>
