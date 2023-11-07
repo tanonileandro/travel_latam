@@ -8,6 +8,7 @@ import Cart from './components/cart/Cart';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Footer from './components/footer/Footer';
 import { AuthProvider } from './contexts/AuthContext'; 
+import ItemListContainer from './components/home/ItemListContainer';
 
 
 const App = () => {
@@ -22,6 +23,7 @@ const App = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/Signing" element={<Signing />} />
             <Route path="/cart" element={<Cart />} /> {/* Agregar la ruta para el Carrito */}
+            <Route path="/list" element={<ItemListContainer />} /> 
           </Routes>
         </div>
         <div>

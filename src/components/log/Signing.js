@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
 import { getFirestore, doc, setDoc } from 'firebase/firestore';
-import { useNavigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import firebaseApp from '../../firebase/Firebase';
 import './StylesLog.css'
 
@@ -10,7 +10,6 @@ const Signing = () => {
   const [mensaje, setMensaje] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate();
 
   const firestore = getFirestore(firebaseApp);
   const auth = getAuth(firebaseApp);

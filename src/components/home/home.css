@@ -22,12 +22,13 @@
 }
 
 /* Estilos para cada tarjeta de promoción */
-.promotion-card {
+.promotion-card-container{
   background-color: #ffffff;
+  flex-direction: column;
   padding: 1rem;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 45%; /* Ajusta el ancho según tus preferencias */
+  width: 100%; /* Ajusta el ancho según tus preferencias */
   margin: 0 0.5rem; /* Espacio entre tarjetas dentro de un par */
   max-width: 700px; /* Ancho máximo para las tarjetas */
 }

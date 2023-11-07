@@ -1,15 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import firebaseApp from '../../firebase/Firebase';
 import { useNavigate } from 'react-router-dom';
-import { getAuth, signInWithEmailAndPassword, signOut } from 'firebase/auth';
-import { getFirestore } from 'firebase/firestore';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import './StylesLog.css';
 
 const auth = getAuth(firebaseApp);
 
 const Login = () => {
   const [error, setError] = useState('');
-  const firebase = getFirestore(firebaseApp);
   const navigate = useNavigate();
   /*
   useEffect(() => {
