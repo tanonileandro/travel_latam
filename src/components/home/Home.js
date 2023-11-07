@@ -61,7 +61,6 @@ const Home = () => {
     },
   ];
 
-  // Dividimos las promociones en pares
   const pairedPromotions = [];
   for (let i = 0; i < promotions.length; i += 2) {
     pairedPromotions.push(promotions.slice(i, i + 2));
