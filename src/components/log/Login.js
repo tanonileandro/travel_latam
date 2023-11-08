@@ -9,21 +9,6 @@ const auth = getAuth(firebaseApp);
 const Login = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
-  /*
-  useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged(user => {
-      if (user) {
-        // El usuario ya está autenticado, redirigir o mostrar opciones
-        navigate('/login');
-      } else {
-        // No autenticado
-      }
-    });
-
-    return () => {
-      unsubscribe();
-    };
-  }, []); // Se ejecuta una vez al montar el componente*/
 
   const handlerSubmit = async (e) => {
     e.preventDefault();
@@ -53,15 +38,6 @@ const Login = () => {
     }
   };
 
-  /*
-  const handleLogout = async () => {
-    try {
-      await signOut(auth);
-      navigate('/');
-    } catch (error) {
-      console.error('Error al cerrar sesión:', error);
-    }
-  };*/
 
   const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

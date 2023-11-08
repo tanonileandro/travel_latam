@@ -14,14 +14,12 @@ const Links = () => {
         description: description,
     });
     console.log("Document written with ID: ", docRef.id);
-    console.log('new agregado');
   };
 
   return (
     <div>
         <h1>Agrega un viaje</h1>
         <AddTravel addOrEditTravel={addOrEditTravel}/>
-        
     </div>
   )
 }

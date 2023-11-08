@@ -7,6 +7,7 @@ function Item({info}) {
     if (window.confirm('Seguro de que quiere eliminarlo?')){
       await deleteDoc(doc(db, "Products", id));
       console.log('eliminado');
+      alert('Actualice la página para ver cambios');
     }
   };
 

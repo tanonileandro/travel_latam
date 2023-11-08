@@ -17,7 +17,6 @@ const Home = () => {
       <div className="promotion-card-container">
         <ItemListContainer/>
       </div>
-      
     </div>
   ); 
 }

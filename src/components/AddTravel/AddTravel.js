@@ -1,12 +1,16 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router';
+
 
 const AddTravel = (props) => {
+    const navigate = useNavigate();
     const initialState = {
         image: "",
         title: "",
         description: "",
     };
     const [travel, setTravel] = useState(initialState);
+    
     
     const handleInputChange = (e) => {
         const { name, value } = e.target
@@ -17,6 +21,9 @@ const AddTravel = (props) => {
         e.preventDefault();
         props.addOrEditTravel(travel);
         setTravel({...initialState});
+        alert('Redirigiendo a inicio para ver cambios');
+        navigate('/');
+        
     };
 
   return (
