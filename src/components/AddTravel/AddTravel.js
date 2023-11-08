@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router';
+import '../log/StylesLog.css'
 
 
 const AddTravel = (props) => {

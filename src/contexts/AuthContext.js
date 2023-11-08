@@ -18,8 +18,6 @@ const AuthProvider = ({ children }) => {
        const uid = currentUser.uid;
 
       // Accede a la información de Firestore o la base de datos en tiempo real de Firebase para obtener el rol del usuario.
-      // Aquí, suponemos que tienes una colección "Usuarios" en Firestore.
-      // Asegúrate de adaptar esto a tu estructura de datos real.
       const userRef = doc(firestore, 'users', uid);
 
       getDoc(userRef)

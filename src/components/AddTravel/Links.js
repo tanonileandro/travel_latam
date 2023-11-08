@@ -18,7 +18,7 @@ const Links = () => {
 
   return (
     <div>
-        <h1>Agrega un viaje</h1>
+        <h1 className='mb-4 text-xl font-weight-bold mb-8 title2 text-center'>Agrega un viaje</h1>
         <AddTravel addOrEditTravel={addOrEditTravel}/>
     </div>
   )
