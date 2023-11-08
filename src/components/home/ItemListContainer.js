@@ -16,12 +16,8 @@ function ItemListContainer() {
     },[])
   
   return (
-    <div>
-      
-      <ItemList data ={data} />  
-      
-    
-      
+    <div> 
+      <ItemList data ={data} /> 
     </div>
   )
 }
