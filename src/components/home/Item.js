@@ -1,27 +1,29 @@
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import { db } from '../../firebase/Firebase';
 import { doc, deleteDoc } from "firebase/firestore";
+import './item.css';
 
 function Item({info}) {
   const onDeleteTravel = async(id) => {
-    if (window.confirm('Seguro de que quiere eliminarlo?')){
+    if (window.confirm('¿Está seguro de que quiere eliminarlo?')){
       await deleteDoc(doc(db, "Products", id));
-      console.log('eliminado');
+      console.log('Eliminado');
       alert('Actualice la página para ver cambios');
     }
   };
 
   return (
-    <div className='text-center'>
+    <div className='card item-card'>
       <Link to={`Products/${info}`} className='producto'>
-      <a href={info.image}><img src={info.image} width='300px' height='300px' alt='imgitem'/></a>
+        <img src={info.image} className='card-img-top' alt='imgitem' />
       </Link>
-      <h1>{info.title} </h1>
-      <p>{info.description}</p> 
-      <button className='btn btn-dark' onClick={() => onDeleteTravel(info.id)}> Eliminar </button>
+      <div className='card-body'>
+        <h5 className='card-title'>{info.title}</h5>
+        <p className='card-text'>{info.description}</p>
+        <button className='btn btn-danger' onClick={() => onDeleteTravel(info.id)}>Eliminar</button>
+      </div>
     </div>
-
   )
 }
 
-export default Item
+export default Item;

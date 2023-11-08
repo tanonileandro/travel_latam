@@ -14,7 +14,7 @@ import Links from './components/AddTravel/Links';
 const App = () => {
   return (
     <BrowserRouter>
-      <AuthProvider> {/* Agregar AuthProvider para envolver todos los componentes */}
+      <AuthProvider > {/* Agregar AuthProvider para envolver todos los componentes */}
         <div>
           <Navbar />
           <Routes>

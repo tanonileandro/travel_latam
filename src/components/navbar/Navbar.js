@@ -83,7 +83,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="d-flex justify-content-center align-items-center social-icons">
-          <a href="" className="text-white" onClick={toggleDarkMode}>
+          <a href="#" className="text-white" onClick={toggleDarkMode}>
             <i className="fa-solid fa-circle-half-stroke"></i>
           </a>
           {/* Condición para mostrar el enlace de usuario solo si el usuario está autenticado */}

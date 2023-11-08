@@ -1,0 +1,21 @@
+.item-card {
+    max-width: 1000px;
+    margin: 10px;
+  }
+  
+  .card-img-top {
+    max-height: 1000px;
+  }
+  
+  .card-title {
+    font-size:20px;
+    font-weight: bold;
+  }
+  
+  .card-text {
+    font-size: 1rem;
+  }
+  
+  .btn-danger {
+    width: 40%;
+  }
