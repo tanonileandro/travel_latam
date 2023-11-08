@@ -19,7 +19,7 @@ const Links = () => {
 
   return (
     <div>
-        <h1>Add</h1>
+        <h1>Agrega un viaje</h1>
         <AddTravel addOrEditTravel={addOrEditTravel}/>
         
     </div>
